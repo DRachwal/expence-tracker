@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ExpensesList from './ExpensesList';
 import Card from '../Card/Card';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesChart from './ExpensesChart';
 
 import './Expenses.css';
 
@@ -14,14 +15,14 @@ const Expenses = props => {
     }
 
     const filteredExpenses = props.expenses.filter(expense => expense.date.getFullYear().toString() === yearFilter);
-    
+
     return (
         <Card className="expenses">
-            <ExpensesFilter 
+            <ExpensesFilter
                 onGetYearFilter={getYearFilter}
-                yearFilter={yearFilter}
-            />
-            <ExpensesList filteredExpenses={filteredExpenses}/>
+                yearFilter={yearFilter} />
+            <ExpensesChart filteredExpenses={filteredExpenses} />
+            <ExpensesList filteredExpenses={filteredExpenses} />
         </Card>
     );
 }
